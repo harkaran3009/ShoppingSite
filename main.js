@@ -13,6 +13,12 @@ app.use(cors())
 app.get('/', function(req,res){
     res.sendFile(path.join(__dirname + '/index.html'));
 });
+
+app.get('/welcome', function(req,res){
+    //var session;
+    res.sendFile(path.join(__dirname + '/welcome.html'));
+});
+
 app.get('/signin', function(req,res){
     res.sendFile(path.join(__dirname + '/signin.html'));
 });
@@ -149,6 +155,69 @@ app.post('/register', function (req, response) {
 
     }
 });
+
+app.post('/checkEmail', function(req,response){
+
+    var emailIdValue = req.body.email;
+
+    MongoClient.connect(url, {useNewUrlParser:true, useUnifiedTopology: true}, function(err, db) { 
+        if (err){}
+        else{
+            var dbo = db.db("mydb");   
+            dbo.collection("Users").findOne({email : emailIdValue}, function(err, res) {
+
+            if(err){
+                db.close();
+                console.log(err);
+            }
+            else if(res == null){
+                db.close();
+                response.statusCode=404;
+                response.redirect(404,'/');
+            }   
+            else
+            {
+                db.close();
+                res.statusCode=200;
+                response.redirect(200,'/');
+            }
+        });
+            
+        }
+    });
+
+
+});
+
+
+app.post('/updatePassword', function(req,response){
+
+    var emailIdValue = req.body.email;
+    var passwordValue = req.body.password;
+    MongoClient.connect(url, {useNewUrlParser:true, useUnifiedTopology: true}, function(err, db) { 
+        if (err){
+            console.log(err);
+        }
+        else{
+            var dbo = db.db("mydb"); 
+            var myquery = { email: emailIdValue };
+            var newvalues = { $set: {password: passwordValue} };
+            dbo.collection("Users").updateOne(myquery, newvalues, function(err, res) {
+            if (err) throw err;
+            else{
+                console.log("1 document updated");
+                db.close();
+                response.redirect(200,'/signin');
+            }
+            
+            });
+            
+        }
+    });
+
+
+});
+
 
 
   app.listen(port, () => {    

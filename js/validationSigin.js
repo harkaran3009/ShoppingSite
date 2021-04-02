@@ -1,6 +1,6 @@
 
 $(document).ready(function(){
-    $('form').submit(function (event) {
+  document.forms['signInForm'].onsubmit = function (event) {
         var temp = validateForm();
         if(temp == false)
         {
@@ -12,8 +12,9 @@ $(document).ready(function(){
           ajaxPostData(event);
           
         }   
-    });
-    });
+    }
+ 
+  });
   
   function validateForm() {
       var emailValue = document.forms["signInForm"]["email"].value;
@@ -35,6 +36,8 @@ $(document).ready(function(){
       return false;
       }
     }
+
+    
   
   
     function ajaxPostData(event){
@@ -62,15 +65,20 @@ $(document).ready(function(){
         {
           alert("Invalid Password");
         }
+        if(xhr.status == 200)
+        { 
+          window.location.href ="welcome.html";
+        }
           
 
           console.log("hello");
       } 
         
       });
-  
+
       
-  
-    
     }
-   
+
+    
+
+      
