@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+
+    <title>Shooping site</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand ml-0" href="/"><img src="imgs/logo.jpg" height="40" width="51"></a>
+            <div class="navbar-header navbar-right pull-right">
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <br>
+        <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Sign Up</h4>
+            <form id="loginForm">
+            
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                 </div>
+                <input name="email" class="form-control" placeholder="Email address" type="email">
+            </div> 
+            
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                </div>
+                <input name="password" class="form-control" placeholder="password" type="password">
+            </div>                                       
+            <div class="form-group">
+                <button id="logIn" type="submit" class="btn btn-primary btn-block"> Sign In  </button>
+            </div>     
+            <p class="text-center">Don't Have an account? <a href="register">Register</a> </p>                                                                 
+        </form>
+        </article>
+        </div> <!-- card.// -->
+        
+        </div> 
+        <!--container end.//-->
+    
+
+       
+
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
+     <script src="./js/bootstrap.min.js"></script>
+   </body>
+   <script type="text/javascript">
+    $(document).ready(function() {
+    $("#logIn").click(function() {
+ 
+        // using serialize function of jQuery to get all values of form
+        var serializedData = $("#loginForm").serialize();
+ 
+        // Variable to hold request
+        var request;
+        request = $.ajax({
+            url: "/login",
+            type: "post",
+            data: serializedData,
+            statusCode: {
+                404: function() {
+                    alert( "record not found, Please register" );
+             },
+                200: function() {
+                    alert( "Logged In, welcome");
+                    
+             }
+            }
+        });
+ 
+         // Callback handler that will be called on success
+        request.done(function(jqXHR, textStatus, response) {
+             // show successfully for submit message
+                $("#result").html('loged In ' );
+                alert(jqXHR.email+"done");
+                console.log('loged In '+ textStatus + '  '+response +' '+jqXHR);
+
+            
+
+        });
+ 
+        // Callback handler that will be called on failure
+        request.fail(function(jqXHR, textStatus, errorThrown) {
+            // Log the error to the console
+            // show error
+            alert( "record not found, Please register" );
+            $("#result").html('There is some error while Loging in');
+            console.log('The following error occurred: ' +textStatus, errorThrown);
+            register();
+
+        });
+ 
+        return false;
+ 
+    });
+});
+</script>
+ 
+ </html>

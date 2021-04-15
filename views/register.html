@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+  
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+
+    <title>Shooping site</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand ml-0" href="/"><img src="imgs/logo.jpg" height="40" width="51"></a>
+            <div class="navbar-header navbar-right pull-right">
+            </div>
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <br>
+            <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Create Account</h4>
+                <form id="registrationForm">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                     </div>
+                    <input name="fname" class="form-control" placeholder="First name" type="text" required>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                     </div>
+                    <input name="lname" class="form-control" placeholder="Last name" type="text" required>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+                     </div>
+                    <input name="age" class="form-control" placeholder="Age" type="text" required>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                     </div>
+                    <input name="email" class="form-control" placeholder="Email address" type="email" required>
+                </div> 
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select class="custom-select" style="max-width: 120px;">
+                        <option selected="">+647</option>
+                        <option value="1">+416</option>
+                        <option value="2">+705</option>
+                        <option value="3">+905</option>
+                        <option value="3">+807</option>
+                        <option value="3">+249</option>
+                        <option value="3">+343</option>
+                    </select>
+                    <input name="phoneNumber" class="form-control" placeholder="Phone number" type="text" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input name="password" class="form-control" placeholder="Create password" type="password" required>
+                </div>                                     
+                <div class="form-group">
+                    <button id="createAccount" type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+                </div>     
+                <p class="text-center">Have an account? <a href="signin">Log In</a> </p>                                                                 
+            </form>
+            </article>
+            </div> <!-- card.// -->
+            
+            </div> 
+            <!--container end.//-->
+            
+
+     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
+     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+   </body>
+
+   <script type="text/javascript">
+    $(document).ready(function() {
+    $("#createAccount").click(function() {
+ 
+        // using serialize function of jQuery to get all values of form
+        var serializedData = $("#registrationForm").serialize();
+        alert(serializedData);
+ 
+        // Variable to hold request
+        var request;
+        request = $.ajax({
+            url: "/register",
+            type: "post",
+            data: serializedData
+        });
+ 
+        // Callback handler that will be called on success
+        request.done(function(jqXHR, textStatus, response) {
+             // show successfully for submit message
+            $("#result").html('done');
+            alert(jqXHR+"done");
+        });
+ 
+        // Callback handler that will be called on failure
+        request.fail(function(jqXHR, textStatus, errorThrown) {
+            // Log the error to the console
+            // show error
+            $("#result").html('There is some error while registering, please fill all fields ');
+            console.error(
+                "The following error occurred: " +
+                textStatus, errorThrown
+            );
+            alert(jqXHR);
+        });
+ 
+        return false;
+ 
+    });
+});
+</script>
+ </html>
