@@ -1,215 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="../javascript/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
 
     <title>Shooping site</title>
-  </head>
-  <body>
+    <script src="../javascript/store.js"></script>
 
+</head>
+
+<body>
+    <!-- onload="myFunction()" -->
     <nav class="navbar navbar-expand navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand ml-0" href="#"><img src="imgs/logo.jpg" height="40" width="51"></a>
+            <a class="navbar-brand ml-0" href="#"><img src="../imgs/aslogi.png" height="40" width="51"></a>
             <div class="navbar-header navbar-right pull-right">
                 <ul class="navbar-nav mr-auto">
-                    <li><a class="nav-link" href="#"><span class="fa fa-heart-o fa-sm" style="color:black"></a></span></li>
-                    <li> <a class="nav-link " href="signin" style="color:black"><span class="fa fa-sign-in fa-sm" ></span>login</a></li>
+                    <li><a class="nav-link" href="#"><span class="fa fa-heart-o fa-sm" style="color:black"></a></span>
+                    </li>
+                    <li id="usermail"> <a class="nav-link " href="signin" style="color:black"><span
+                                class="fa fa-sign-in fa-sm"></span>login</a></li>
                 </ul>
             </div>
-            </div>
-        </nav>
-        
+        </div>
+    </nav>
+
 
 
     <div class="jumbotron">
-      <div class="container"><h1>Hello , Welcome to shoping site</h1> </div>
+        <div class="container">
+            <h1 id="titleWebsite">Hello, Welcome to shoping site</h1>
+        </div>
     </div>
-
-    <div class="container">
-        </div>
-            <div class="row mb-4 mt-4">
-                <div class="col-6 col-md-3 mb-2">
-                    <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/mystery & thriller/The-Adventures-of-Sherlock-Holmes.pdf">Sherlock Holmes<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/mystery & thriller/The-Adventures-of-Sherlock-Holmes.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Adventures of Sherlock Holmes" title="Adventures of Sherlock Holmes" src="imgs/mystery & thriller/The adventures of sherlock homes.jpg">
-                        </a>
-                        </div>
-                    </div>
+    <section class="container content-section">
+        <h2 class="section-header">PC GAMES</h2>
+        <div class="shop-items">
+            <div class="shop-item">
+                <span class="shop-item-title">Call Of Duty WW2</span>
+                <img class="shop-item-image" src="../imgs/cod.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$12.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                 </div>
-                <div class="col-6 col-md-3 mb-2">
-                       <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/young adult/Black-Beauty.pdf">Black Beauty<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/young adult/Black-Beauty.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Black Beauty" title="Black Beauty" src="imgs/young adult/Black Beauty.jpg">
-                        </a>
-                        </div>
-                    </div>
-                 </div>
-                <div class="col-6 col-md-3 mb-2">
-                     <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/Fantasy/Alice-in-Wonderland.pdf">Alice in Wonderland<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/Fantasy/Alice-in-Wonderland.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Alice in wonderland" title="Alice in wonderland" src="imgs/Fantasy/Alice in wonderland.jpg">
-                        </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 mb-2">
-                     <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/action & adventure/Gulliver's-Travels.pdf">Gulliver's travels<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/action & adventure/Gulliver's-Travels.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="gulliver's travels" title="gulliver's travels" src="imgs/action & adventure/gulliver's travels.jpg">
-                        </a>
-                        </div>
-                    </div>
-                 </div>  
             </div>
-            
-        </div>
-
-
-
-        <div class="container">
-        </div>
-            <div class="row mb-4 mt-4">
-                <div class="col-6 col-md-3 mb-2">
-                    <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/mystery & thriller/The-Adventures-of-Sherlock-Holmes.pdf">Sherlock Holmes<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/mystery & thriller/The-Adventures-of-Sherlock-Holmes.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Adventures of Sherlock Holmes" title="Adventures of Sherlock Holmes" src="imgs/mystery & thriller/The adventures of sherlock homes.jpg">
-                        </a>
-                        </div>
-                    </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Assassins Creed Odyssey</span>
+                <img class="shop-item-image" src="../imgs/ac.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$14.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                 </div>
-                <div class="col-6 col-md-3 mb-2">
-                       <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/young adult/Black-Beauty.pdf">Black Beauty<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/young adult/Black-Beauty.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Black Beauty" title="Black Beauty" src="imgs/young adult/Black Beauty.jpg">
-                        </a>
-                        </div>
-                    </div>
-                 </div>
-                <div class="col-6 col-md-3 mb-2">
-                     <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/Fantasy/Alice-in-Wonderland.pdf">Alice in Wonderland<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/Fantasy/Alice-in-Wonderland.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Alice in wonderland" title="Alice in wonderland" src="imgs/Fantasy/Alice in wonderland.jpg">
-                        </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 mb-2">
-                     <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/action & adventure/Gulliver's-Travels.pdf">Gulliver's travels<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/action & adventure/Gulliver's-Travels.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="gulliver's travels" title="gulliver's travels" src="imgs/action & adventure/gulliver's travels.jpg">
-                        </a>
-                        </div>
-                    </div>
-                 </div>  
             </div>
-            
-        </div>
-
-
-
-        <div class="container">
-        </div>
-            <div class="row mb-4 mt-4">
-                <div class="col-6 col-md-3 mb-2">
-                    <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/mystery & thriller/The-Adventures-of-Sherlock-Holmes.pdf">Sherlock Holmes<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/mystery & thriller/The-Adventures-of-Sherlock-Holmes.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Adventures of Sherlock Holmes" title="Adventures of Sherlock Holmes" src="/imgs/The adventures of sherlock homes.jpg">
-                        </a>
-                        </div>
-                        <button class="btn-danger mr-5 ml-5">fav</button>
-                    </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Just Cause 3</span>
+                <img class="shop-item-image" src="../imgs/jc.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$9.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                 </div>
-                <div class="col-6 col-md-3 mb-2">
-                       <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/young adult/Black-Beauty.pdf">Black Beauty<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/young adult/Black-Beauty.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Black Beauty" title="Black Beauty" src="imgs/young adult/Black Beauty.jpg">
-                        </a>
-                        </div>
-                    </div>
-                 </div>
-                <div class="col-6 col-md-3 mb-2">
-                     <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/Fantasy/Alice-in-Wonderland.pdf">Alice in Wonderland<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/Fantasy/Alice-in-Wonderland.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="Alice in wonderland" title="Alice in wonderland" src="imgs/Fantasy/Alice in wonderland.jpg">
-                        </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-6 col-md-3 mb-2">
-                     <div class="card card-grey">
-                        <div class="card-title">
-                        <a href="/Pdfs/action & adventure/Gulliver's-Travels.pdf">Gulliver's travels<i class="fa fa-chevron-right"></i></a>
-                        </div>
-                        <div class="card-body d-none d-sm-block">
-                        <a href="/Pdfs/action & adventure/Gulliver's-Travels.pdf">
-                        <img class="img-fluid" data-cfsrc="" alt="gulliver's travels" title="gulliver's travels" src="imgs/action & adventure/gulliver's travels.jpg">
-                        </a>
-                        </div>
-                    </div>
-                 </div>  
             </div>
-            
+            <div class="shop-item">
+                <span class="shop-item-title">Tom Raider</span>
+                <img class="shop-item-image" src="../imgs/tr.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$19.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Battlefield 1</span>
+                <img class="shop-item-image" src="../imgs/b1.jpg">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$19.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
+            <div class="shop-item">
+                <span class="shop-item-title">Max Payne</span>
+                <img class="shop-item-image" src="../imgs/mp">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$19.99</span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+            </div>
         </div>
+    </section>
 
+    <section class="container content-section">
+        <h2 class="section-header">Favourite List Cart</h2>
+        <div class="cart-row">
+            <span class="cart-item cart-header cart-column">ITEM</span>
+            <span class="cart-price cart-header cart-column">PRICE</span>
+            <span class="cart-quantity cart-header cart-column">QUANTITY</span>
+        </div>
+        <div class="cart-items">
+        </div>
+        <div class="cart-total">
+            <strong class="cart-total-title">Total</strong>
+            <span class="cart-total-price">$0</span>
+        </div>
+        <button id="addFavList" class="btn btn-primary btn-purchase" type="button">Add to Favourite List</button>
+    </section>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
-  </body>
+    <!--  <script>
+        function myFunction() {
+            if(sessionStorage){
+                var mail = sessionStorage.getItem("user")
+                if(mail != null){
+                    alert("sessionstorage item "+ sessionStorage.getItem("user"));
+                    document.getElementById("usermail").innerHTML = mail;
+                }
+            }
+  alert("Page is loaded");
+}
+    </script> -->
+    <script>
+        $(document).ready(function () {
+            if (sessionStorage) {
+                var mail = sessionStorage.getItem("user")
+                var userName = ""
+                var data1 = { 'mail': mail }
+                var request;
+                request = $.ajax({
+                    url: "/getUsername",
+                    type: "post",
+                    data: data1,
+                    success: function (response) {
+                        //alert("Success");
+                        //alert(response.firstname);
+                        userName += response.firstname + " " + response.lastname;
+
+                    },
+                    complete: function (xhr, textStatus) {
+                        if (xhr.status == 200) {
+                            if (mail != null) {
+                                //alert("sessionstorage item " + sessionStorage.getItem("user"));
+                                $("#usermail").html("<b class=\"nav-link \" style=\"color:black\">" + mail + "</b>");
+                                $("#titleWebsite").html("Hello," + userName + "<br>Welcome to shoping site");
+                            }
+                        }
+
+                    }
+                });
+
+            }
+
+
+        });
+
+    </script>
+</body>
+
 </html>

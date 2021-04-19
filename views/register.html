@@ -12,12 +12,43 @@
   
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./javascript/validation.js"></script> 
+
+    <style>  
+        .ui-widget-header,.ui-state-default, ui-button{  
+           background: lightyellow;  
+           border: 2px solid #b9cd6d;  
+           color: black;  
+           font-weight: bold;  
+        }  
+     </style> 
+
+    <script>
+        $(function() {  
+            $( ".dialog-3" ).dialog({  
+               autoOpen: false,   
+               hide: "slide",  
+               show : "slide",  
+               height: 200        
+            });
+        });  
+    </script>
 
     <title>Shooping site</title>
   </head>
   <body>
-
+    <div class="dialog-3" id="fnamedialog" title="Registeration failed.">Invalid First Name.</div> 
+    <div class="dialog-3" id="lnamedialog" title="Registeration failed.">Invalid Last Name.</div> 
+    <div class="dialog-3" id="agedialog" title="Registeration failed.">Invalid Age, Please enter between 1 to 120.</div> 
+    <div class="dialog-3" id="emaildialog" title="Registeration failed.">Invalid Email.</div> 
+    <div class="dialog-3" id="phoneNumberdialog" title="Registeration failed.">Phone no. Should contain 7 digits.</div> 
+    <div class="dialog-3" id="passworddialog" title="Registeration failed.">Password Should be of Minimum 6 length.</div> 
     <nav class="navbar navbar-expand navbar-dark bg-primary">
         <div class="container">
             <a class="navbar-brand ml-0" href="/"><img src="imgs/logo.jpg" height="40" width="51"></a>
@@ -28,11 +59,12 @@
 
 
         <div class="container">
+           
             <br>
             <div class="card bg-light">
             <article class="card-body mx-auto" style="max-width: 400px;">
                 <h4 class="card-title mt-3 text-center">Create Account</h4>
-                <form id="registrationForm">
+                <form id="myForm">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
@@ -51,7 +83,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
                      </div>
-                    <input name="age" class="form-control" placeholder="Age" type="text" required>
+                    <input name="age" class="form-control" placeholder="Age" type="text" min="2" max="100" required>
                 </div>
 
                 <div class="form-group input-group">
@@ -93,18 +125,16 @@
             <!--container end.//-->
             
 
-     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
-     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    
    </body>
 
-   <script type="text/javascript">
+  <!--  <script type="text/javascript">
     $(document).ready(function() {
     $("#createAccount").click(function() {
  
         // using serialize function of jQuery to get all values of form
-        var serializedData = $("#registrationForm").serialize();
+        var serializedData = $("#myForm").serialize();
         alert(serializedData);
  
         // Variable to hold request
@@ -118,7 +148,6 @@
         // Callback handler that will be called on success
         request.done(function(jqXHR, textStatus, response) {
              // show successfully for submit message
-            $("#result").html('done');
             alert(jqXHR+"done");
         });
  
@@ -126,8 +155,7 @@
         request.fail(function(jqXHR, textStatus, errorThrown) {
             // Log the error to the console
             // show error
-            $("#result").html('There is some error while registering, please fill all fields ');
-            console.error(
+            console.log(
                 "The following error occurred: " +
                 textStatus, errorThrown
             );
@@ -138,5 +166,5 @@
  
     });
 });
-</script>
+</script> -->
  </html>
