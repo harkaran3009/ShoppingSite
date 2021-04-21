@@ -24,10 +24,14 @@
             <a class="navbar-brand ml-0" href="#"><img src="../imgs/aslogi.png" height="40" width="51"></a>
             <div class="navbar-header navbar-right pull-right">
                 <ul class="navbar-nav mr-auto">
-                    <li><a class="nav-link" href="#"><span class="fa fa-heart-o fa-sm" style="color:black"></a></span>
+                    <li><a class="nav-link" href="favourites"><span class="fa fa-heart-o fa-sm" style="color:black"></a></span>
                     </li>
                     <li id="usermail"> <a class="nav-link " href="signin" style="color:black"><span
                                 class="fa fa-sign-in fa-sm"></span>login</a></li>
+
+                    <div id="dropdown">
+
+                    </div>
                 </ul>
             </div>
         </div>
@@ -79,7 +83,7 @@
                 <span class="shop-item-title">Battlefield 1</span>
                 <img class="shop-item-image" src="../imgs/b1.jpg">
                 <div class="shop-item-details">
-                    <span class="shop-item-price">$19.99</span>
+                    <span class="shop-item-price">$17.99</span>
                     <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
                 </div>
             </div>
@@ -128,7 +132,7 @@
 }
     </script> -->
     <script>
-        $(document).ready(function () {
+         $(document).ready(function () {
             if (sessionStorage) {
                 var mail = sessionStorage.getItem("user")
                 var userName = ""
@@ -148,6 +152,13 @@
                         if (xhr.status == 200) {
                             if (mail != null) {
                                 //alert("sessionstorage item " + sessionStorage.getItem("user"));
+                                $("#dropdown").html("<div class=\"dropdown\">"+
+        "<a class=\" nav-link dropdown-toggle\" id=\"Help\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color:black\"></a>"+
+                                    "<div class=\"dropdown-menu\" aria-labelledby=\"Help\">"+
+                                        "<a class=\"dropdown-item\" href=\"edit\">Edit profile</a>"+
+                                       " <a class=\"dropdown-item\" onclick=\"logout();\" href=\"#\" >Logout</a>"+
+                                   " </div>"+
+                                "</div>");
                                 $("#usermail").html("<b class=\"nav-link \" style=\"color:black\">" + mail + "</b>");
                                 $("#titleWebsite").html("Hello," + userName + "<br>Welcome to shoping site");
                             }
@@ -157,10 +168,20 @@
                 });
 
             }
+       
+
 
 
         });
+   
 
+    </script>
+    <script>
+        function logout() {
+            alert("user loged out")
+            sessionStorage.removeItem("user")
+            location.reload(true);
+        }
     </script>
 </body>
 

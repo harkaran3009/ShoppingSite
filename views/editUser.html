@@ -111,13 +111,13 @@
                         <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
                     </div>
                     <select name="phoneCode" class="custom-select" style="max-width: 120px;">
-                        <option selected="">+647</option>
-                        <option value="1">+416</option>
-                        <option value="2">+705</option>
-                        <option value="3">+905</option>
-                        <option value="3">+807</option>
-                        <option value="3">+249</option>
-                        <option value="3">+343</option>
+                        <option value="0" selected="">+647</option>
+                        <option value="1" selected="">+416</option>
+                        <option value="2" selected="">+705</option>
+                        <option value="3" selected="">+905</option>
+                        <option value="4"selected="">+807</option>
+                        <option value="5">+249</option>
+                        <option value="6">+343</option>
                     </select>
                     <input name="phoneNumber" class="form-control" placeholder="Phone number" type="text" required>
                 </div>
@@ -156,7 +156,7 @@
                                 $('input[name=lname]').val(response.lastname);
                                 $('input[name=age]').val(response.age);
                                 $('input[name=email]').val(response.email);
-                                $('input[name=phoneCode]').val(response.phoneCode);
+                                $('input[name=phoneCode]').val(response.phoneCode).prop('selected', 'selected');;
                                 $('input[name=phoneNumber]').val(response.phoneNumber);
                                 $('input[name=password]').val(response.password);
        
@@ -194,7 +194,7 @@
                function logout() {
                    alert("user loged out")
                    sessionStorage.removeItem("user")
-                   location.reload(true);
+                   window.location.href ="/";
                }
            </script>
 

@@ -14,6 +14,23 @@
 
     <title>Shooping site</title>
     <script src="../javascript/store.js"></script>
+    <style>
+        .has-search .form-control {
+    padding-left: 2.375rem;
+}
+
+.has-search .form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2.375rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+    </style>
 
 </head>
 
@@ -44,7 +61,11 @@
             <h1 id="titleWebsite">Hello, login to see your favourite items</h1>
         </div>
     </div>
-    <table  class="table table-striped">
+    <div class="form-group has-search float-right">
+        <span class="fa fa-search form-control-feedback"></span>
+    <input class=" form-control" type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for titles.." title="Type game name">
+    </div>
+    <table  id="myTable" class="table table-striped">
         <thead class="thead-light">
                   <th>Image</th>
                   <th>title</th>
@@ -109,7 +130,7 @@
                                 $("#dropdown").html("<div class=\"dropdown\">"+
                                     "<a class=\" nav-link dropdown-toggle\" id=\"Help\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color:black\"></a>"+
                                     "<div class=\"dropdown-menu\" aria-labelledby=\"Help\">"+
-                                        "<a class=\"dropdown-item\" href=\"#\">Edit profile</a>"+
+                                        "<a class=\"dropdown-item\" href=\"edit\">Edit profile</a>"+
                                        " <a class=\"dropdown-item\"onclick=\"logout();\" href=\"#\">Logout</a>"+
                                    " </div>"+
                                 "</div>");
@@ -133,9 +154,30 @@
         function logout() {
             alert("user loged out")
             sessionStorage.removeItem("user")
-            location.reload(true);
+            window.location.href ="/";
         }
     </script>
+    <script>
+        function myFunction() {
+          var input, filter, table, tr, td, i, txtValue;
+          input = document.getElementById("myInput");
+          filter = input.value.toUpperCase();
+          table = document.getElementById("myTable");
+          tr = table.getElementsByTagName("tr");
+          for (i = 0; i < tr.length; i++) {
+            td = tr[i].getElementsByTagName("td")[1];
+            if (td) {
+              txtValue = td.textContent || td.innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                tr[i].style.display = "";
+              } else {
+                tr[i].style.display = "none";
+              }
+            }       
+          }
+        }
+        </script>
+        
 </body>
 
 </html>

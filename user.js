@@ -18,6 +18,10 @@ const userSchema = mongoose.Schema({
         unique: 1,
         trim: true
     },
+    phoneCode:{
+        type:String,
+        required: true,
+    },
     phoneNumber:{
         type: Number,
         required: true,
@@ -26,6 +30,10 @@ const userSchema = mongoose.Schema({
         type: String,
         required: true,
         minlength:6
+    },
+    favList:{
+        type: Object,
+
     }
 })
 

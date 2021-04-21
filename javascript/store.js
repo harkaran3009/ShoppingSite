@@ -36,7 +36,6 @@ function purchaseClicked() {
     var cartRows = cartItemContainer.getElementsByClassName('cart-row') 
     var cartItems = document.getElementsByClassName('cart-items')[0]
     var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
-
     var user = sessionStorage.getItem("user");
     //alert(user);
     
@@ -54,9 +53,15 @@ function purchaseClicked() {
         for (var i = 0; i < cartRows.length; i++) {
             var titleName = cartItemNames[i].innerText;
             var quantityItem = (cartRows[i].getElementsByClassName('cart-quantity-input')[0].value);
-            //alert(titleName);
-            obj = {'titleName' : titleName, 'quantity':quantityItem}
-            //alert(obj.quantity);
+            var imgsrc = (cartItems.getElementsByClassName('cart-item-image')[i].src);
+            var itemPrice = (cartItems.getElementsByClassName('cart-price')[i].innerText);
+            var p = parseFloat(itemPrice.replace('$', ''))
+            //alert(p)
+            var totalPrice = quantityItem * p;
+           // alert("in for loop"+ imgsrc)
+           // alert(itemPrice);
+            obj = {'titleName' : titleName, 'quantity':quantityItem,'price':itemPrice, 'TotalPrice':totalPrice, 'imagePath': imgsrc}
+           // alert(obj.imagePath);
             jsonObj.push(obj);
         }    
         //alert(jsonObj[1].titleName + jsonObj[1].quantity);
@@ -111,6 +116,7 @@ function addToCartClicked(event) {
     var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
     var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
     var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+    alert(imageSrc)
     addItemToCart(title, price, imageSrc)
     updateCartTotal()
 }

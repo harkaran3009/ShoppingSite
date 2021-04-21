@@ -12,6 +12,19 @@ $(document).ready(function(){
         
       }   
   });
+  $("#updateAccount").click(function() {
+    var temp = validateForm();
+    if(temp == false)
+    {
+      alert("register failed due to validations")
+      return false;
+    }
+    else
+    {
+      ajaxUpdateData();
+      
+    }   
+});
   });
 
 function validateForm() {
@@ -91,4 +104,38 @@ function validateForm() {
 
   
   }
+
+
+  function ajaxUpdateData(){
+
+    var serialData = $("#userForm").serialize();
+    
+    // Variable to hold request
+    var request;
+    result = $.ajax({
+        url: "/update",
+        type: "post",
+        data: serialData,
+        success: function(response) {
+          console.log(response);
+      },
+      complete: function(xhr, textStatus) {
+        if (xhr.status == 200)
+        {
+          alert("Details  Updated Succesfull");
+          window.location.href ="/edit";
+        }
+        if(xhr.status == 400)
+        {
+          alert("details not updated"+ xhr);
+          console.log(textStatus +" Update failed")
+        }
+        
+        
+
+    }  
+    });
+  
+  }
+ 
  
