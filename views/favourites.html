@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="../javascript/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-social/5.1.1/bootstrap-social.css">
+
+    <title>Shooping site</title>
+    <script src="../javascript/store.js"></script>
+
+</head>
+
+<body>
+ 
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand ml-0" href="/"><img src="../imgs/aslogi.png" height="40" width="51"></a>
+            <div class="navbar-header navbar-right pull-right">
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-link" href="#"><span class="fa fa-heart-o fa-sm" style="color:black"></a></span>
+                    </li>
+                    <li id="usermail"> <a class="nav-link " href="signin" style="color:black"><span
+                                class="fa fa-sign-in fa-sm"></span>login</a></li>
+
+                                <div id="dropdown">
+
+                                </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+    <div class="jumbotron">
+        <div class="container">
+            <h1 id="titleWebsite">Hello, login to see your favourite items</h1>
+        </div>
+    </div>
+    <table  class="table table-striped">
+        <thead class="thead-light">
+                  <th>Image</th>
+                  <th>title</th>
+                  <th>Quantity</th>
+                  <th>price</th>
+                  <th>Total Price</th>
+                  
+            </thead>
+            <tbody id= "itemdata">
+      
+             </tbody>
+         </table>
+ 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            if (sessionStorage) {
+                var mail = sessionStorage.getItem("user")        
+                var userName = ""
+                var data1 = { 'mail': mail }
+                var request;
+                request = $.ajax({
+                    url: "/getUsername",
+                    type: "post",
+                    data: data1,
+                    success: function (response) {
+                        //alert("Success");
+                        //alert(response.firstname);
+                        userName += response.firstname + " " + response.lastname;
+                        var item ='';
+                        for(let i =0;i<response.favList.length;i++){
+                            item += '<tr>';
+                            item += '<td><img class="img-thumbnail" style="height:130px;width:130px " src=' + 
+                                response.favList[i].imagePath + '></td>';
+  
+                            item += '<td>' + 
+                                response.favList[i].titleName + '</td>';
+  
+                            item += '<td>' + 
+                                response.favList[i].quantity + '</td>';
+  
+                            item += '<td>' + 
+                                response.favList[i].price + '</td>';
+
+                            item += '<td>' + 
+                                response.favList[i].TotalPrice + '</td>';
+  
+                            item += '</tr>';
+  
+
+                        }
+                        $('#itemdata').append(item);
+
+                    },
+                    complete: function (xhr, textStatus) {
+                        if (xhr.status == 200) {
+                            if (mail != null) {
+                                //alert("sessionstorage item " + sessionStorage.getItem("user"));
+                                $("#dropdown").html("<div class=\"dropdown\">"+
+                                    "<a class=\" nav-link dropdown-toggle\" id=\"Help\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color:black\"></a>"+
+                                    "<div class=\"dropdown-menu\" aria-labelledby=\"Help\">"+
+                                        "<a class=\"dropdown-item\" href=\"#\">Edit profile</a>"+
+                                       " <a class=\"dropdown-item\"onclick=\"logout();\" href=\"#\">Logout</a>"+
+                                   " </div>"+
+                                "</div>");
+                                $("#usermail").html("<b class=\"nav-link \" style=\"color:black\">" + mail + "</b>");
+                                $("#titleWebsite").html("Hello," + userName + "<br>here are your favourite items");
+                                
+
+                            }
+                        }
+
+                    }
+                });
+
+            }
+
+
+        });
+
+    </script>
+    <script>
+        function logout() {
+            alert("user loged out")
+            sessionStorage.removeItem("user")
+            location.reload(true);
+        }
+    </script>
+</body>
+
+</html>
