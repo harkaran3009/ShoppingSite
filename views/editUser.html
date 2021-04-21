@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+  
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link href="http://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>  
+    <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.1/umd/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./javascript/validation.js"></script> 
+    <style>  
+        .ui-widget-header,.ui-state-default, ui-button{  
+           background: lightyellow;  
+           border: 2px solid #b9cd6d;  
+           color: black;  
+           font-weight: bold;  
+        }  
+     </style> 
+
+    <script>
+        $(function() {  
+            $( ".dialog-3" ).dialog({  
+               autoOpen: false,   
+               hide: "slide",  
+               show : "slide",  
+               height: 200        
+            });
+        });  
+    </script>
+
+    <title>Shooping site</title>
+  </head>
+  <body>
+    <div class="dialog-3" id="fnamedialog" title="Registeration failed.">Invalid First Name.</div> 
+    <div class="dialog-3" id="lnamedialog" title="Registeration failed.">Invalid Last Name.</div> 
+    <div class="dialog-3" id="agedialog" title="Registeration failed.">Invalid Age, Please enter between 1 to 120.</div> 
+    <div class="dialog-3" id="emaildialog" title="Registeration failed.">Invalid Email.</div> 
+    <div class="dialog-3" id="phoneNumberdialog" title="Registeration failed.">Phone no. Should contain 7 digits.</div> 
+    <div class="dialog-3" id="passworddialog" title="Registeration failed.">Password Should be of Minimum 6 length.</div> 
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand ml-0" href="/"><img src="../imgs/aslogi.png" height="40" width="51"></a>
+            <div class="navbar-header navbar-right pull-right">
+                <ul class="navbar-nav mr-auto">
+                    <li><a class="nav-link" href="favourites"><span class="fa fa-heart-o fa-sm" style="color:black"></a></span>
+                    </li>
+                    <li id="usermail"> <a class="nav-link " href="signin" style="color:black"><span
+                                class="fa fa-sign-in fa-sm"></span>login</a></li>
+
+                    <div id="dropdown">
+
+                    </div>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 id="titleWebsite"></h1>
+        </div>
+    </div>
+
+
+        <div class="container">
+           
+            <br>
+            <div class="card bg-light">
+            <article class="card-body mx-auto" style="max-width: 400px;">
+                <h4 class="card-title mt-3 text-center">Details</h4>
+                <form id="userForm">
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                     </div>
+                    <input name="fname" class="form-control" placeholder="First name" type="text" required>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                     </div>
+                    <input name="lname" class="form-control" placeholder="Last name" type="text" required>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-calendar"></i> </span>
+                     </div>
+                    <input name="age" class="form-control" placeholder="Age" type="text" min="2" max="100" required>
+                </div>
+
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                     </div>
+                    <input name="email" class="form-control" placeholder="Email address" type="email" readonly required>
+                </div> 
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+                    </div>
+                    <select name="phoneCode" class="custom-select" style="max-width: 120px;">
+                        <option selected="">+647</option>
+                        <option value="1">+416</option>
+                        <option value="2">+705</option>
+                        <option value="3">+905</option>
+                        <option value="3">+807</option>
+                        <option value="3">+249</option>
+                        <option value="3">+343</option>
+                    </select>
+                    <input name="phoneNumber" class="form-control" placeholder="Phone number" type="text" required>
+                </div>
+                <div class="form-group input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                    </div>
+                    <input name="password" class="form-control" placeholder="Create password" type="password" required>
+                </div>                                     
+                <div class="form-group">
+                    <button id="updateAccount" type="submit" class="btn btn-primary btn-block"> Update  </button>
+                </div>                                                                 
+            </form>
+            </article>
+            </div> <!-- card.// -->
+            
+            </div> 
+            <!--container end.//-->
+            
+            <script>
+                $(document).ready(function () {
+                   if (sessionStorage) {
+                       var mail = sessionStorage.getItem("user")
+                       var userName = ""
+                       var data1 = { 'mail': mail }
+                       var request;
+                       request = $.ajax({
+                           url: "/getUsername",
+                           type: "post",
+                           data: data1,
+                           success: function (response) {
+                               //alert("Success");
+                               //alert(response.firstname);
+                               userName += response.firstname + " " + response.lastname;
+                                $('input[name=fname]').val(response.firstname);
+                                $('input[name=lname]').val(response.lastname);
+                                $('input[name=age]').val(response.age);
+                                $('input[name=email]').val(response.email);
+                                $('input[name=phoneCode]').val(response.phoneCode);
+                                $('input[name=phoneNumber]').val(response.phoneNumber);
+                                $('input[name=password]').val(response.password);
+       
+                           },
+                           complete: function (xhr, textStatus) {
+                               if (xhr.status == 200) {
+                                   if (mail != null) {
+                                       //alert("sessionstorage item " + sessionStorage.getItem("user"));
+                                       $("#dropdown").html("<div class=\"dropdown\">"+
+               "<a class=\" nav-link dropdown-toggle\" id=\"Help\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\" style=\"color:black\"></a>"+
+                                           "<div class=\"dropdown-menu\" aria-labelledby=\"Help\">"+
+                                               "<a class=\"dropdown-item\" href=\"edit\">Edit profile</a>"+
+                                              " <a class=\"dropdown-item\" onclick=\"logout();\" href=\"#\" >Logout</a>"+
+                                          " </div>"+
+                                       "</div>");
+                                       $("#usermail").html("<b class=\"nav-link \" style=\"color:black\">" + mail + "</b>");
+                                       $("#titleWebsite").html("Hello," + userName + "<br>You can update your details");
+                                       
+                                   }
+                               }
+       
+                           }
+                       });
+       
+                   }
+              
+       
+       
+       
+               });
+          
+       
+           </script>
+           <script>
+               function logout() {
+                   alert("user loged out")
+                   sessionStorage.removeItem("user")
+                   location.reload(true);
+               }
+           </script>
+
+    
+   </body>
+</html>
